@@ -18,7 +18,7 @@ email: your-email@example.com
 description: > # this means to ignore newlines until "baseurl:"
   tryc html css web
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "www.bargage.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: http://TRYC-01.github.io # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 introduce: 遇见 未来 的你
