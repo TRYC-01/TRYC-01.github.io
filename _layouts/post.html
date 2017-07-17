@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+      {% if page.author %}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+      {% endif %}</p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% assign post_array=site.posts %}
+  
+  {% if page.url==post_array.fist.url %}<!--最新的文章 -->
+  <a class="btn btn-danger">下一篇：没有更多文章了</a>
+  <a class="btn btn-success"href="post_array[1].url">上一篇：{{post_array[1].title}}
+    {% else %}
+  
+  {% if page.url==post_array.last.url %}
+  <a class="btn btn-scuccess" href="{{post_array[{{post_array | size}}-1]}}">下一篇：{{post_array[size-1].title}}</a>
+  <a class="btn btn-danger">上一篇：没有更多文章了</a>
+  {% endif %}
+  {% endif %}
+
+  
+  
+  
+  <!--<a class="btn btn-info"href="{{post_array[my_counter-1].url}}">下一篇：{{post_array[my_counter-1].title}}</a>
+  <a class="btn btn-success"href="{{post_array[my_counter+1].url}}">上一篇：{{post_array[my_counter+1].title}}</a>-->
+ 
+  
+  
+  
+ 
+
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>

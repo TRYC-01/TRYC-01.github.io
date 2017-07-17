@@ -1,0 +1,26 @@
+    body{
+        line-height: 30px;
+        font-size:16px;
+        color:#1756a9;
+    }
+    .heading{
+        background-image:url("/assets/header.jpg");
+        background-position:center center;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height:666px;
+    }
+    .site-heading{
+     margin:50px;
+     padding-top:200px;
+     text-align:center;
+     letter-spacing: 15px;
+     color:#fff;
+    }
+    .minfo{
+        margin-top:150px;
+    }
+    .post-content{
+        text-indent:2em;
+    }

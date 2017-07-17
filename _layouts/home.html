@@ -1,0 +1,63 @@
+--- 
+layout: default 
+---
+
+<div class="home">
+  <ul class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <h2>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a><span class="post-meta">{{ post.date | date: date_format }}</span>
+      </h2>
+      <p>{{post.excerpt}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="pagination pagination-lg">
+    <li><a href="{{site.url}}"><span>首页</span></a></li>
+    <li>
+      {% if paginator.page=1 %}
+        <span>&laquo;</span> 
+      {% else %} 
+        {% if paginator.previous_page=1 %}
+          <a href="{{site.url}}">&laquo;</a>
+        {% else %}
+          <a href="{{paginator.previous_page_path}}"><span>&laquo;</span></a>
+         {% endif %} 
+      {% endif %}
+    </li>
+
+    {% for page in (1..paginator.total_pages) limit:9 offset:{{paginator.page-1}} %} 
+    {% if paginator.page==page %}
+      <li class="active">
+    {% else %}
+      <li>
+     {% endif %}
+    {% if page==1 %}
+      <a href="{{site.url}}">{{page}}</a>
+    {% else %}
+      <a href="/page{{page}}">{{page}}</a>
+    </li>
+    
+    {% endif %}
+    {% endfor %}
+
+    <li>
+      {% if paginator.page == paginator.total_pages %}
+      <span>&raquo;</span> 
+      {% else %}
+      <a href="{{paginator.next_page_path}}"><span>&raquo;</span></a> 
+      {% endif %}
+    </li>
+    {% if paginator.page==1 %}
+    <li><a><span>末页</span></a></li>
+      {% else %}
+    <li><a href="/page{{paginator.total_pages}}"><span>末页</span></a></li>
+    {% endif %}
+    <li class="disabled">
+      <span>第{{paginator.page}}页 / 共{{paginator.total_pages}}页</span>
+    </li>
+  </ul>
+</div>
