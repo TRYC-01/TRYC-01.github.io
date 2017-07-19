@@ -34,13 +34,13 @@
     <h1>TRYC</h1>
     <span class="subheading">{{site.introduce}}</span>
   </div>
-  <p class="minfo text-center"><a href="#page2" class="btn btn-info">More<br>
+  <p class="minfo text-center"><a class="btn btn-info">More<br>
     <span class="glyphicon glyphicon-menu-down"></span></a>
     <p>
    <script>
      window.onload=function(){
       $(".minfo").on("click",function(){
-     $("windwow").scroll("300px");
+     $("li.disabled").scrollIntoView(false);
    })
      }
    </script> 
