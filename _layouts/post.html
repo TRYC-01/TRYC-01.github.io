@@ -18,17 +18,17 @@ layout: default
     {{ content }}
   </div>
 
-  {% assign post_array=site.posts %}
   
-  {% if page.url==post_array.fist.url %}<!--最新的文章 -->
-  <a class="btn btn-danger">下一篇：没有更多文章了</a>
-  <a class="btn btn-success"href="post_array[1].url">上一篇：{{post_array[1].title}}
+  {% if page.next %}<!--最新的文章 -->
+  <a class="btn btn-success"href="page.next_path">下一篇：{{page.next.title}}
     {% else %}
-  
-  {% if page.url==post_array.last.url %}
-  <a class="btn btn-scuccess" href="{{post_array[{{post_array | size}}-1]}}">下一篇：{{post_array[size-1].title}}</a>
-  <a class="btn btn-danger">上一篇：没有更多文章了</a>
+  <a class="btn btn-danger">下一篇：没有更多文章了</a>
   {% endif %}
+  
+  {% if page.previous %}
+  <a class="btn btn-scuccess" href="{{page.previous_path}}">上一篇：{{page.previous.title}}</a>
+  {% else %}
+  <a class="btn btn-danger">上一篇：没有更多文章了</a>
   {% endif %}
 
   
