@@ -20,13 +20,13 @@ layout: default
 
   
   {% if page.next %}<!--最新的文章 -->
-  <a class="btn btn-success"href="page.next">下一篇：{{page.next.title}}
+  <a class="btn btn-success"href="page.next.url">下一篇：{{page.next.title}}
     {% else %}
   <a class="btn btn-danger">下一篇：没有更多文章了</a>
   {% endif %}
   
   {% if page.previous %}
-  <a class="btn btn-scuccess" href="{{page.previous}}">上一篇：{{page.previous.title}}</a>
+  <a class="btn btn-scuccess" href="{{page.previous.url}}">上一篇：{{page.previous.title}}</a>
   {% else %}
   <a class="btn btn-danger">上一篇：没有更多文章了</a>
   {% endif %}
